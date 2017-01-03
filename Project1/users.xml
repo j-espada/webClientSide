@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding="utf-8" ?>
+<users>
+    <user>
+        <email>test@vsb.cz</email>
+        <password>test</password>
+    </user>
+    <user>
+        <email>admin@vsb.cz</email>
+        <password>admin</password>
+    </user>
+</users>

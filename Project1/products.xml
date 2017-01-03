@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding="utf-8" ?>
+
+<products>
+
+    <product>
+        <img>img/phone.jpg</img>
+        <name>phone android</name>
+        <type>phone</type>
+        <price>150</price>
+        <available>true</available>
+    </product>
+
+
+    <product>
+        <img>img/phone.jpg</img>
+        <name>super android</name>
+        <type>phone</type>
+        <price>250</price>
+        <available>false</available>
+    </product>
+
+    <product>
+        <img>img/phone.jpg</img>
+        <name>megaphone android</name>
+        <type>phone</type>
+        <price>540</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/phone.jpg</img>
+        <name>iDroid</name>
+        <type>phone</type>
+        <price>200</price>
+        <available>false</available>
+    </product>
+
+    <product>
+        <img>img/pc.png</img>
+        <name>Ultra Computer</name>
+        <type>computer</type>
+        <price>2010</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/pc.png</img>
+        <name>Medium Computer</name>
+        <type>computer</type>
+        <price>1500</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/pc.png</img>
+        <name>Cheap Computer</name>
+        <type>computer</type>
+        <price>600</price>
+        <available>false</available>
+    </product>
+
+    <product>
+        <img>img/pc.png</img>
+        <name>XUltra Computer</name>
+        <type>computer</type>
+        <price>6000</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/console.ico</img>
+        <name>Regular Console</name>
+        <type>consoles</type>
+        <price>455</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/console.ico</img>
+        <name>X Console</name>
+        <type>consoles</type>
+        <price>600</price>
+        <available>false</available>
+    </product>
+
+    <product>
+        <img>img/console.ico</img>
+        <name>Cheap Console</name>
+        <type>consoles</type>
+        <price>250</price>
+        <available>false</available>
+    </product>
+
+    <product>
+        <img>img/console.ico</img>
+        <name>XCheap Console</name>
+        <type>consoles</type>
+        <price>100</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/external-device.png</img>
+        <name>pen 15GB</name>
+        <type>external drives</type>
+        <price>10</price>
+        <available>true</available>
+    </product>
+
+    <product>
+        <img>img/external-device.png</img>
+        <name>pen 30GB</name>
+        <type>external drives</type>
+        <price>20</price>
+        <available>true</available>
+    </product>
+
+</products>

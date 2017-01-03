@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Online Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="script/lib.js"></script>
+    <script src="script/bootstrapvalidator.js"></script>
+    <script src="script/formval.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Online Store</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Quick Acess<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showShoppingCart()">Shopping Cart</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="status" data-toggle="modal" data-target="#myModal"> <span  class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+                <div id="alert-bad-login" class="alert alert-danger" role="alert">Email and Password doesn't Match!</div>
+                <fieldset>
+                    <input  id="username" type="email" name="user" placeholder="Email">
+                    <input id="password" type="password" name="pass" placeholder="Password">
+                    <input class="login loginmodal-submit btn btn-primary" value="Login" onclick="submitLoginForm()">
+                </fieldset>
+            </form>
+            <br>
+            <div class="login-help center-text">
+                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#alert-bad-login").hide();
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img class="img-responsive" id="logo" src="img/logo.png" alt="banner online store"/>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <button id="PTbutton" type="button" class="btn btn-primary active">PT</button>
+            <button id="ENbutton" type="button" class="btn btn-primary disabled">EN</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <nav class="navbar navbar-default" >
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Products</a>
+                    </div>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#" onclick="loadProducts('phone')">Phones</a></li>
+                    <li><a href="#" onclick="loadProducts('computer')">Computers</a></li>
+                    <li><a href="#" onclick="loadProducts('external drives')">External Drives</a></li>
+                    <li><a href="#" onclick="loadProducts('consoles')">Consoles</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-9">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" onclick="loadProducts('phone')">Phones</a></li>
+                                    <li><a href="#" onclick="loadProducts('computer')">Computers</a></li>
+                                    <li><a href="#" onclick="loadProducts('external drives')">External Drives</a></li>
+                                    <li><a href="#" onclick="loadProducts('consoles')">Consoles</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <label for="search">Search</label>
+                                <input id="search" type="text" class="form-control" placeholder="Quick Search">
+                            </div>
+                            <button type="submit" class="btn btn-default"><span
+                                    class="glyphicon glyphicon-search"> </span>
+                            </button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="#" onclick="showShoppingCart();"><span
+                                    class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span>Finish shopping</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="container" id="shopping-cart">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Shopping Cart</div>
+                        <div class="panel-body">
+                            <div id="cart-list" class="list-group">
+                            </div>
+                            <div class="container"></div>
+                            <hr>
+                            <div id="no-itens-cart"> </div>
+                            <h4>Ways of Payment</h4>
+                            <form  action="#">
+                                <div class="radio">
+                                    <label><input id="mb" type="radio" name="optradio">MB</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input id="transfer" type="radio" name="optradio">Bank Account Transfer</label>
+                                </div>
+                                <div class="radio ">
+                                    <label><input id="pickup-store" type="radio" name="optradio">Pick up at the store</label>
+                                </div>
+                                <input id="input-confirm" class="btn btn-info" type = "submit" value = "Confirm" onclick="check();" />
+                            </form>
+                            <br>
+                            <div id="payment-info" class="col-md-9" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="carousel-promo" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+
+                            <div class="item active">
+                                <img src="img/product-banner.jpg"
+                                     alt="product x">
+                            </div>
+                            <div class="item inactive">
+                                <img src="img/product-banner.jpg"
+                                     alt="product x">
+                            </div>
+                            <div class="item inactive">
+                                <img src="img/product-banner.jpg"
+                                     alt="product x">
+                            </div>
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr>
+    </div>
+
+
+    <div class="container" id="added-alert">
+
+    </div>
+
+    <div id="products-news" class="container">
+        <div class="row">
+            <h2>New Products</h2>
+            <div  class="col-md-12">
+                <div class="col-md-3">
+                    <img class="img-responsive" src="img/pc.png" alt="New Computer">
+                    <div class="info-prod">
+                     <p>New Computer</p>
+                    <button class="btn btn-primary">See More!</button>
+                    </div>
+               </div>
+
+                <div class="col-md-3">
+                    <img class="img-responsive" src="img/console.ico" alt="New Console">
+                    <div class="info-prod">
+                        <p>New Console</p>
+                        <button class="btn btn-primary">See More!</button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="img-responsive" src="img/external-device.png" alt="New external-device">
+                    <div class="info-prod">
+                        <p>New External Device</p>
+                        <button class="btn btn-primary">See More!</button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="img-responsive" src="img/phone.jpg" alt="New Phone">
+                    <div class="info-prod">
+                        <p>New Phone</p>
+                        <button class="btn btn-primary">See More!</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h2 id="h2">h2</h2>
+            <div  id="productsDiv" class="col-md-12">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $("#h2").hide();
+        $("#added-alert").hide();
+        $("#products").hide();
+        $("#shopping-cart").hide();
+        $("#payment-info").hide();
+    </script>
+
+
+    <br>
+
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Please Leave a Message!</h3>
+            </div>
+            <div class="modal-body">
+                <form id="form" class="form-horizontal col-md-12">
+                    <fieldset>
+                        <!-- Success message -->
+                        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+                        <div class="form-group">
+                            <label>First Name*</label>
+                            <input  name="first_name" class="form-control" placeholder="Your first name"  type="text"  >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Name*</label>
+                            <input name="last_name" class="form-control" placeholder="Your last name"  type="text"  >
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail*</label>
+                            <input name="email" class="form-control" placeholder="email@you.com (so that we can contact you)">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone*</label>
+                            <input name="phone" class="form-control" placeholder="999-9999-999" type="tel">
+                        </div>
+                        <div class="form-group">
+                            <label>Message*</label>
+                            <textarea name="content" class="form-control" placeholder="Your message here.." ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success pull-right">Send It!</button>
+                            <button  id="cancel" class="btn btn-danger pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div id="footerDiv" class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div id="map">
+                    <script>
+                        function initMap() {
+                            var uluru = {lat: 38.014777, lng: -7.862396};
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 15,
+                                center: uluru
+                            });
+                            var marker = new google.maps.Marker({
+                                position: uluru,
+                                map: map
+                            });
+                        }
+
+                    </script>
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEprnaXgzlyR8Gjk_ZUB0y9-l5uWCYy2c&callback=initMap">
+                    </script>
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <h4>Contacts</h4>
+                <p>Phone : +351 222 315 000</p>
+                <p>Email : geral@store.pt</p>
+                <p>Fax: +351 222 314 401</p>
+                <h4>Address</h4>
+                <p>Online Store
+                    ,Portugal Beja,
+                    7800-574</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="dash"/>
+                <div class="col-md-2">©2016-Online Store</div>
+                <div class="col-md-2"><a href="#">Contacts</a></div>
+                <div class="col-md-2"><a href="#">Map of Website</a></div>
+                <div class="col-md-2"><a href="#">Termos de utilização</a></div>
+                <div class="col-md-2"><button class="btn btn-primary" onclick="scrollUp();">Go to Top&uarr;</button></div>
+                <div class="col-md-2"><button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Contact Us</button></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
