@@ -1,0 +1,101 @@
+#phoneContact,#email,#nameContact,#message {
+
+    background-color:#f6f7fb ;
+}
+
+.div-background-blue {
+
+    background-color: #e3f2fd ;
+ }
+
+.div-background-blue2 {
+
+    background-color: #bbdefb;
+}
+
+.div-background-blue3 {
+
+    background-color: #90caf9 ;
+}
+
+body{
+
+    background: url("../img/seigaiha.png") ;
+    background-repeat: repeat;
+}
+.center-titles {
+    text-align: center;
+    font-family: "Century Schoolbook L";
+}
+.left-title {
+    text-align: left;
+    font-family: "Century Schoolbook L";
+}
+.right-title {
+    text-align: right;
+    font-family: "Century Schoolbook L";
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+}
+.img-responsive{
+    border: 1px solid #ccc;
+    margin-top:15px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+
+
+.center-img {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+}
+
+
+#top-nav {
+
+    background-color:#f6f7fb ;
+
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+#mid-nav{
+    background-color: transparent;
+    border-color: transparent;
+    text-align: center;
+}
+
+#mid-nav .inner {
+    float: none;
+    display:inline-block;
+}
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mediaicons.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/formval.js"></script>
+    <script src="script/bootstrapvalidator.js"></script>
+</head>
+<body>
+
+<nav id="top-nav" class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="nav-bar header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="#" class="fa fa-phone"> +1 555 123456</a></li>
+            <li><a href="#" class="glyphicon glyphicon-inbox"> support@company.com</a></li>
+        </ul>
+        <div class="text-center">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-github"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<nav id="mid-nav" class="navbar navbar-default">
+
+    <div>
+        <div class="navbar-collapse">
+            <div class="container-fuild inner">
+                <ul class="nav navbar-nav ">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li class="active"><a href="contact.html">Contact</a></li>
+                    <li><a href="">Pages</a></li>
+                    <li><a href="photogallery.html">Photo Gallery</a></li>
+                </ul>
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<hr>
+<div class="container">
+    <div class="row">
+        <div id="map">
+            <div class="col-md-12">
+                <script>
+                    function initMap() {
+                        var uluru = {lat:48.855085, lng: 2.429396};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 15,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEprnaXgzlyR8Gjk_ZUB0y9-l5uWCYy2c&callback=initMap">
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="md-col-6">
+
+            <form id="form" class="form-horizontal col-md-6">
+                <fieldset>
+                <h3 class="center-titles">Please Leave a Message</h3>
+                    <!-- Success message -->
+                    <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+                <div class="form-group">
+                    <label>First Name*</label>
+                    <input  name="first_name" class="form-control" placeholder="Your first name"  type="text"  >
+                </div>
+
+                <div class="form-group">
+                    <label>Name*</label>
+                    <input name="last_name" class="form-control" placeholder="Your last name"  type="text"  >
+                </div>
+                <div class="form-group">
+                    <label>E-Mail*</label>
+                    <input name="email" class="form-control" placeholder="email@you.com (so that we can contact you)">
+                </div>
+                <div class="form-group">
+                    <label>Phone*</label>
+                    <input name="phone" class="form-control" placeholder="999-9999-999" type="tel">
+                </div>
+                <div class="form-group">
+                    <label>Message*</label>
+                    <textarea name="content" class="form-control" placeholder="Your message here.." ></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success pull-right">Send It!</button>
+                </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h3 class="center-titles">Contact Me</h3>
+                <figure>
+                    <img src="img/personalImg.png" class="center-img" alt="Joaquim Espada Photo" >
+                    <figcaption><p>Joaquim Espada CEO</p></figcaption>
+                </figure>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- /.container -->
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>Perosnal<span>webpage</span></h3>
+
+        <p class="footer-links">
+            <a href="index.html">Home</a>
+            ·
+            <a href="#">Portfolio</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="photogallery.html">Photo Gallery</a>
+            ·
+            <a href="#">Pages</a>
+            ·
+            <a href="contact.html">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Joaquim Espada &copy; 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>21 Revolution Street</span> Paris, France</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 555 123456</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About me</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+
+    </div>
+
+</footer>
+</body>
+</html>
